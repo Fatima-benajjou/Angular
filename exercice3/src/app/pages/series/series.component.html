@@ -1,0 +1,30 @@
+<div>
+    
+   
+    <ul>
+     
+
+        <!-- {{ seriesList | }} -->
+        
+        @for (s of seriesList | pipe: order; track s; let i = $index) {
+
+            <li>
+                
+                A l'index : {{ i }} j'ai : {{ s }}.
+
+            </li>
+        }
+
+      
+        @empty { <p>Il n'y a aucune série dans la liste.</p>}
+  
+    </ul> {{ order }}
+    <button (click)= "order = 'desc'"> desc </button>
+
+    <button (click)= "order = 'asc'"> asc </button>
+  </div>
+  
+  
+   
+  
+  
