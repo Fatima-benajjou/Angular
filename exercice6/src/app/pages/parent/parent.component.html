@@ -1,0 +1,23 @@
+<h1>Composant Parent</h1>
+
+<div>
+  <input [(ngModel)]="pokemon" />
+</div>
+
+<app-pokemon-card pokemon="Salaméche"></app-pokemon-card>
+<app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+@for (poke of pokemons; track poke) {
+  <app-pokemon-card [pokemon]="poke"></app-pokemon-card>
+}
+
+<h2>Users</h2>
+
+
+
+<h2>Les Slots</h2>
+
+
+
+<h2>Outputs</h2>
+
+<app-counter [count]="counter" (countChange)="modifyCounter($event)"></app-counter>

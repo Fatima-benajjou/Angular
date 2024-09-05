@@ -1,5 +1,5 @@
 <h1>Créer un Pokémon</h1>
-<form [formGroup]="pokemon_control" (ngSubmit)="onSubmit()">
+<form [formGroup]="pokemon" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Nom:</label>
     <input id="name" formControlName="name" />
@@ -63,13 +63,3 @@
 
   <button type="submit">Créer Pokémon</button>
 </form>
-
-<div>
-  <h2> Liste Pokemon</h2>
-    @for (pokemon of pokemons; track pokemon) {
-  <app-pokemon-card [pokemon]="pokemon" (deleteEvent)="deletePokemon($event)">
-
-  </app-pokemon-card>
-
-    }
-</div>
