@@ -29,6 +29,30 @@ export class PokemonComponent {
     });
   }
 
+//   pokemon_control = new FormGroup ({
+//     name: new FormControl('', Validators.required),
+//     description: new FormControl('', Validators.required),
+//     types: new FormArray ([
+//       new FormControl("")
+//     ]),
+//     attacks: new FormArray ([
+//       new FormGroup ({
+//         name: new FormControl("", Validators.required),
+//         description: new FormControl("", Validators.required),
+//         damage: new FormControl(0, Validators.required)
+
+//         })
+//       ]),
+      
+//       zone: new FormGroup ({
+//         name: new FormControl("", Validators.required),
+//         region: new FormControl("", Validators.required)
+//   })
+
+// })
+
+
+
   createAttackGroup(): FormGroup {
     return this.fb.group({
       name: ['', Validators.required],
@@ -60,6 +84,7 @@ export class PokemonComponent {
   onSubmit(): void {
     if (this.pokemon.valid) {
       console.log(this.pokemon.value);
+      this.pokemon.reset()
     
     }
   }

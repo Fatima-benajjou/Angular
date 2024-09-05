@@ -10,7 +10,7 @@
     <textarea id="description" formControlName="description"></textarea>
   </div>
 
-  <div>
+  <div formArrayName="types">
     <label>Types:</label>
      @for (control of types.controls; track control) {
         <p>
@@ -23,12 +23,14 @@
 
   <div formArrayName="attacks">
     <h3>Attaques:</h3>
+    
    @for (attack of attacks.controls; track attack) {
+    <div [formGroupName]="$index"> 
       <div>
         <label for="attack-name">Nom de l'attaque:</label>
         <input id="attack-name" formControlName="name" />
       </div>
-    }
+    
       <div>
         <label for="attack-description">Description:</label>
         <textarea id="attack-description" formControlName="description"></textarea>
@@ -38,6 +40,8 @@
         <label for="attack-damage">Dégâts:</label>
         <input id="attack-damage" formControlName="damage" type="number" />
       </div>
+    </div>
+    }
 
       <!-- <button type="button" (click)="removeAttack()">Supprimer cette attaque</button> -->
     </div>
