@@ -1,0 +1,13 @@
+<h2>Liste des pokemon du Pokedex</h2>
+
+<ul>
+
+@for (pokemon of pokedex; track pokemon) {
+    <li>
+        {{pokemon.name}} - {{pokemon.description}}
+        <button (click)="deletePokemon(pokemon)"> Supprimer du pokedex</button>
+    </li>
+
+}
+
+</ul>

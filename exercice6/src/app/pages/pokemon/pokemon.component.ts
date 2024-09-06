@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import { Pokemon } from '../../utils/types/pokemon.type';
 import { PokemonCardComponent } from '../../component/pokemon-card/pokemon-card.component';
@@ -60,11 +60,14 @@ pokemons : Pokemon[] = [];
 // }
 
 constructor() {
-  const stored = localStorage.getItem('pokemons');
-  if(stored) {
-    this.pokemons = JSON.parse(stored)
+   
+    const stored = localStorage.getItem('pokemons');
+    if(stored) {
+      this.pokemons = JSON.parse(stored)
+    
   }
 }
+
 
 
   get types(): FormArray {
@@ -96,7 +99,7 @@ constructor() {
       console.log(this.pokemon_control.value);
       this.pokemons.push(this.pokemon_control.value as Pokemon)
       localStorage.setItem('pokemons', JSON.stringify(this.pokemons))
-      this.pokemon_control.reset()
+      this.pokemon_control.reset()    
     
     }
   }
@@ -106,4 +109,6 @@ constructor() {
     this.pokemons.splice(i,1);
     localStorage.setItem('pokemons', JSON.stringify(this.pokemons));
   }
+
+
 }

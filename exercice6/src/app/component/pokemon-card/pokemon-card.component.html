@@ -1,5 +1,24 @@
 <article>
     <h3>{{pokemon.name}}</h3>
     <h3>{{pokemon.description}}</h3>
-    <button (click) = "deletePokemon()"> Supprimer</button>
+
+    <!-- <h4>Types : </h4>
+  <div class="types">
+    @for (type of pokemon.types; track type) {
+      <span class="rounded">{{type}}</span>
+    }
+  </div>
+
+  <h4>Zone</h4>
+  <p><b>{{pokemon.zone.name}} :</b> {{pokemon.zone.description}}</p>
+
+  <h4>Attaques</h4>
+  <ul class="attacks">
+    @for (att of pokemon.attacks; track att) {
+      <li><span class="rounded">{{att}}</span></li>
+    }
+  </ul> -->
+
+    <button (click)="deletePokemon()"> Supprimer de la liste</button>
+    <button (click)="addPokemon()">Ajouter au Pokedex</button>
   </article>
