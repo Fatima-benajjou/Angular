@@ -79,10 +79,11 @@ constructor() {
   }
 
   addType(type: string) {
-    this.types.push(new FormGroup({
-      name: new FormControl(''),
-  }))
-}
+    this.types.push(
+       new FormControl(''),
+   )
+  }
+
 
   addAttack() {
     this.attacks.push(new FormGroup({

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../utils/types/pokemon.type';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,16 @@ import { Pokemon } from '../utils/types/pokemon.type';
 export class PokedexServiceService {
 
   pokedex: Pokemon [] = [];
+  counter$ = new BehaviorSubject<number>(0)
  
     addPokemon(pokemon : Pokemon) {
       
       if (!this.isPokemonInPokedex(pokemon)) {
-        this.pokedex.push(pokemon);
+        this.pokedex.push(pokemon)
+        this.counter$.next(this.pokedex.length);
+
+      }else {
+        alert ("ce pokemon existe déja")
       }
       
     }
@@ -19,6 +25,7 @@ export class PokedexServiceService {
     deletePokemon (pokemon : Pokemon): void {
       let index = this.pokedex.indexOf(pokemon)
       this.pokedex.splice(index,1);
+      this.counter$.next(this.pokedex.length)
     }
 
 
